@@ -9,11 +9,16 @@ const Theme = {
 
 if (getTheme() === Theme.DARK) {
   refs.changeTheme.setAttribute("checked", "true");
-  setTheme(getTheme());
+  setTheme(Theme.DARK);
 }
 
-refs.changeTheme.addEventListener("change", () => {
-  getTheme() === Theme.LIGHT ? setTheme(Theme.DARK) : setTheme(Theme.LIGHT);
+refs.changeTheme.addEventListener("change", event => {
+  if (event.target.checked) {
+    setTheme(Theme.DARK);
+  }
+  else {
+    setTheme(Theme.LIGHT);
+  }
 });
 
 function getTheme () {
